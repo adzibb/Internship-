@@ -1,0 +1,43 @@
+{% extends 'internship/base.html' %}
+
+{% block title %} Internship {% endblock %}
+
+{% block content %}
+   <div class="container">
+      {% for c in comp %}
+      <div class="row">
+         <div class="col">
+            <div class="card">
+               <div class="card-body">
+                  <h5 class="card-title">{{c.name}}</h5>
+                  <p class="p-3"> --- {{c.about}}</p>
+                  <a href="{% url 'processApplication' c.id  %}" role="button" class="btn btn-outline-primary">apply</a>
+               </div>
+            </div>  
+         </div>
+      </div>
+         <br>
+      {% endfor %}
+
+      {% for c in location_set %}
+         <h3>Company name here</h3>
+         <div class="row text-white bg-dark">
+            <p>The company can located at '{{c.name}}' with GPS address: {{c.digi_address}}</p>
+         </div>
+      {% endfor %}
+
+   {% for c in role_set %}
+      <div class="row text-bg-dark"> 
+         <p>Role: {{c.name}}</p>   
+         <p>Additional requirements:</p>
+         <pre>
+            {{c.addi_info}}
+         </pre>
+         <a href="" role="button" class="btn btn-outline-primary">apply</a>
+      </div>
+      
+   {% endfor %}
+   </div>
+   
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'internship/base.html' %}
+
+{% block title %} Internship {% endblock %}
+
+{% block content %}
+<div class="font-monospace fw-semibold">
+<h4 class="fw-bold">Please fill the form below</h4>
+
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="comp_name" class="form-label">Company Name</label>
+            <input type="text" name="comp_name" id="comp_name" class="form-control">
+        </div>
+        
+        <div class="mb-3">
+            <label for="comp_about" class="form-label">About Company</label>
+            <textarea class="form-control" id="comp_about" rows="3" name="comp_about"></textarea>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="comp_location" class="form-label">Company Location</label>
+                    <input type="text" name="comp_location" id="comp_location" class="form-control">
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="comp_digi_address" class="form-label">Digital Address</label>
+                    <input type="text" name="comp_digi_address" id="comp_digi_address" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="comp_role" class="form-label">Role</label>
+            <input type="text" name="comp_role" id="comp_role" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="comp_addi_info" class="form-label">Add more information about internship</label>
+            <textarea name="comp_addi_info" class="form-control" id="comp_addi_info" rows="3" placeholder="requirements: cv etc"></textarea>
+        </div>
+    </div>
+
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <button type="submit" name="save" value="save" class="btn btn-lg btn-outline-success">Save</button>
+                <button type="reset" name="reset" value="" class="btn btn-lg btn-outline-danger">Reset</button><br>
+            </div>
+           
+            <div class="col-4">
+                <button type="submit" name="old_opps" class="btn btn-lg btn-outline-primary">View all posted</button>
+                <a href="{% url 'home' %}" role="button" class="btn btn-lg btn-outline-secondary">Go Back</a>
+            </div>
+        </div>
+
+        
+        
+    </form>
+{% endblock %}
